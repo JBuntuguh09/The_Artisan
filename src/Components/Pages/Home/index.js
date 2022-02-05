@@ -1,6 +1,7 @@
 import React from "react";
 import HomeCarousel from "./HomeCarousel/HomeCarousel";
 import "bootstrap/dist/css/bootstrap.min.css";
+import Header from "../../Resources/Header";
 
 const Home = () => {
   const caroArray = [
@@ -29,7 +30,7 @@ const Home = () => {
 
   return (
     <div className="homepage">
-      <br />
+      <Header/>
       <HomeCarousel caroArray={caroArray} />
     </div>
   );
