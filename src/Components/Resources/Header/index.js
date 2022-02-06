@@ -63,14 +63,14 @@ window.addEventListener('resize', showButton);
 
                         <ul className={click ?'nav-menu active' : 'nav-menu'}>
                             <li className='nav-item'>
-                                <a href='' className='nav-links' onClick={closeMobileMenu}>
+                                <a href='/' className='nav-links' onClick={closeMobileMenu}>
                                <Home/>
                                LOGIN
                                 </a>
                             </li>
 
                             <li className='nav-item'>
-                                <a  className='nav-links' onClick={()=> closeMobileMenu("Vote") }>
+                                <a href="/" className='nav-links' onClick={()=> closeMobileMenu("Vote") }>
                                <HowToVote/>
                                SIGN UP
                                 </a>
