@@ -8,14 +8,14 @@ import Button from 'react-bootstrap/Button'
 import './index.css'
 
 
-const Header = ( {props,pageLevel})=>{
+const Header = (props)=>{
 const [click, setClick] = useState(false)
 const [button, setButton] = useState(true)
 const [username, setUsername] = useState('')
 
 const closeMobileMenu = (page)=>{
-    pageLevel(page)
-    setClick(false)
+    props.history.replace('/register')
+    alert("klkl")
 }
 
 const showButton = ()=>{
@@ -63,14 +63,14 @@ window.addEventListener('resize', showButton);
 
                         <ul className={click ?'nav-menu active' : 'nav-menu'}>
                             <li className='nav-item'>
-                                <a href='' className='nav-links' onClick={closeMobileMenu}>
+                                <a href='' className='nav-links' >
                                <Home/>
                                LOGIN
                                 </a>
                             </li>
 
                             <li className='nav-item'>
-                                <a  className='nav-links' onClick={()=> closeMobileMenu("Vote") }>
+                                <a  className='nav-links' href='/register' >
                                <HowToVote/>
                                SIGN UP
                                 </a>
@@ -78,22 +78,7 @@ window.addEventListener('resize', showButton);
 
                          
 
-  {/* 
-                            <li className='nav-item'>
-                                <a href="https://www.facebook.com/infoview.data" className='nav-links' onClick={closeMobileMenu}>
-                                <Facebook/>
-                                </a>
-                            </li>
-                            <li className='nav-item'>
-                            <a href='/https://mobile.twitter.com/infoviewgh' className='nav-links' onClick={closeMobileMenu}>
-                                <Twitter/>
-                                </a>
-                            </li>
-                            <li className='nav-item'>
-                            <a href='/https://www.linkedin.com/company/3315364?trk=tyah&trkInfo=clickedVertical%3Acompany%2Cidx%3A1-1-1%2CtarId%3A1432673193926%2Ctas%3Ainfoview%20da' className='nav-links' onClick={closeMobileMenu}>
-                                <LinkedIn/>
-                                </a>
-                            </li> */}
+  
 
                             
 
