@@ -64,13 +64,16 @@ window.addEventListener('resize', showButton);
                         <ul className={click ?'nav-menu active' : 'nav-menu'}>
                             <li className='nav-item'>
                                 <a href='' className='nav-links' >
+
                                <Home/>
                                LOGIN
                                 </a>
                             </li>
 
                             <li className='nav-item'>
+
                                 <a  className='nav-links' href='/register' >
+                          
                                <HowToVote/>
                                SIGN UP
                                 </a>
