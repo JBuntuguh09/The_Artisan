@@ -2,7 +2,7 @@ import React from "react"
 import './index.scss'
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-export const JobsFilter = ({ placeholder, handleChange, users }) => {
+export const JobsFilter = ({ handleChange }) => {
     const categories = [{
         id: 1,
         type: 'plumbers',
@@ -42,7 +42,7 @@ export const JobsFilter = ({ placeholder, handleChange, users }) => {
                 <h5 className="font-weight-bold">Filters</h5>
                 <form className="brand">
                     {categories.map(cat => {
-                        return <div key={cat.id} placeholder={placeholder} onChange={handleChange()} className="form-inline list-group-item d-flex align-items-center py-2"> <label className="tick">{toCamelCase(cat.type)} <input value={cat.value} type="checkbox" /> <span className="check"></span> </label> </div>
+                        return <div key={cat.id} onChange={handleChange()} className="form-inline list-group-item d-flex align-items-center py-2"> <label className="tick">{toCamelCase(cat.type)} <input value={cat.value} type="checkbox" /> <span className="check"></span> </label> </div>
                     })}
                 </form>
             </div>

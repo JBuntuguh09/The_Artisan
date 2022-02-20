@@ -44,7 +44,7 @@ export class Jobs extends React.Component {
                         <SearchBox users={filteredUsers} handleChange={this.handleChange} placeholder="search jobs" />
                     </Row>
                     <Row>
-                        <Col placeholder="search jobs" id="jobfilter" sm={3}><JobsFilter users={filteredUsers} handleChange={this.handleChange} /></Col>
+                        <Col id="jobfilter" sm={3}><JobsFilter handleChange={this.handleChange} /></Col>
                         <Col sm={7}>
                             Jobs page
                         </Col>
