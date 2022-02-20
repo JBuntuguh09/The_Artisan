@@ -23,7 +23,42 @@ export const JobsFilter = ({ handleChange }) => {
         type: 'labourers',
         count: 48,
         value: 'nic'
-    },]
+    }]
+
+    const locations = [{
+        id: 100,
+        city: 'accra',
+        value: 'Gwenborough'
+    }, {
+        id: 200,
+        city: 'tema',
+        value: 'Wisokyburgh'
+    }, {
+        id: 300,
+        city: 'kumasi',
+        value: 'McKenziehaven'
+    }, {
+        id: 400,
+        city: 'sunyani',
+        value: 'South Elvis"'
+    }, {
+        id: 500,
+        city: 'takoradi',
+        value: 'Roscoeview'
+    }, {
+        id: 600,
+        city: 'tamale',
+        value: 'South Christy'
+    }, {
+        id: 700,
+        city: 'cape coast',
+        value: 'Howemouth'
+    }, {
+        id: 800,
+        city: 'bolga',
+        value: 'Aliyaview'
+    }]
+
     const toCamelCase = (str) => {
         return str.charAt(0).toUpperCase() + str.slice(1).toLowerCase();
     };
@@ -31,20 +66,38 @@ export const JobsFilter = ({ handleChange }) => {
     return (
         <div>
             <div className="py-3">
-                <h5 className="font-weight-bold">Categories</h5>
-                <ul className="list-group">
-                    {categories.map(cat => {
-                        return <li key={cat.id} className="list-group-item list-group-item-action d-flex justify-content-between align-items-center category">{toCamelCase(cat.type)} <span className="badge badge-primary badge-pill text-dark">{cat.count}</span> </li>
-                    })}
-                </ul>
+                <details open>
+                    <summary>
+                        <h5 className="font-weight-bold">Categories</h5>
+                    </summary>
+                    <ul className="list-group">
+                        {categories.map(cat => {
+                            return <li key={cat.id} className="list-group-item list-group-item-action d-flex justify-content-between align-items-center category">{toCamelCase(cat.type)} <span className="badge badge-primary badge-pill text-dark">{cat.count}</span> </li>
+                        })}
+                    </ul>
+                </details>
             </div>
             <div className="py-3">
-                <h5 className="font-weight-bold">Filters</h5>
-                <form className="brand">
-                    {categories.map(cat => {
-                        return <div key={cat.id} onChange={handleChange()} className="form-inline list-group-item d-flex align-items-center py-2"> <label className="tick">{toCamelCase(cat.type)} <input value={cat.value} type="checkbox" /> <span className="check"></span> </label> </div>
-                    })}
-                </form>
+                <details>
+                    <summary><h5 className="font-weight-bold">Filters</h5></summary>
+                    <form className="brand">
+                        {categories.map(cat => {
+                            return <div key={cat.id} onChange={handleChange()} className="form-inline list-group-item d-flex align-items-center py-2"> <label className="tick">{toCamelCase(cat.type)} <input value={cat.value} type="checkbox" /> <span className="check"></span> </label> </div>
+                        })}
+                    </form>
+                </details>
+            </div>
+            <div className="py-3">
+                <details>
+                    <summary>
+                        <h5 className="font-weight-bold">Location</h5>
+                    </summary>
+                    <form className="brand">
+                        {locations.map(location => {
+                            return <div key={location.id} onChange={handleChange()} className="form-inline list-group-item d-flex align-items-center py-2"> <label className="tick">{toCamelCase(location.city)} <input value={location.value} type="checkbox" /> <span className="check"></span> </label> </div>
+                        })}
+                    </form>
+                </details>
             </div>
         </div>
     );

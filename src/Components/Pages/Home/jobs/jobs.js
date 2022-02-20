@@ -29,7 +29,7 @@ export class Jobs extends React.Component {
     getFilter = () => {
         const { users, searchField } = this.state;
         const filteredUsers = users.filter((user) =>
-            user.name.toLowerCase().includes(searchField.toLowerCase())
+            user.name.toLowerCase().includes(searchField.toLowerCase()) || user.address.city.toLowerCase().includes(searchField.toLowerCase()) 
         );
         return filteredUsers
     }
