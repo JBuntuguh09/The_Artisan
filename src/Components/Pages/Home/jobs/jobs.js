@@ -5,6 +5,7 @@ import { SearchBox } from "../../../Resources/search";
 import { JobsFilter } from "../../../Resources/filter";
 import { Container, Row, Col } from "react-bootstrap";
 import Header from "../../../Resources/Header";
+import { JobCards } from "../jobCards/jobCards";
 
 export class Jobs extends React.Component {
     constructor() {
@@ -45,9 +46,7 @@ export class Jobs extends React.Component {
                     </Row>
                     <Row>
                         <Col id="jobfilter" sm={3}><JobsFilter handleChange={this.handleChange} /></Col>
-                        <Col sm={7}>
-                            Jobs page
-                        </Col>
+                        <Col sm={7}><JobCards users={filteredUsers}/></Col>
                     </Row>
                 </Container>
 

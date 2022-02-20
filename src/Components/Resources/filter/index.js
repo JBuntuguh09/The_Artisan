@@ -82,7 +82,7 @@ export const JobsFilter = ({ handleChange }) => {
                     <summary><h5 className="font-weight-bold">Filters</h5></summary>
                     <form className="brand">
                         {categories.map(cat => {
-                            return <div key={cat.id} onChange={handleChange()} className="form-inline list-group-item d-flex align-items-center py-2"> <label className="tick">{toCamelCase(cat.type)} <input value={cat.value} type="checkbox" /> <span className="check"></span> </label> </div>
+                            return <div key={cat.id} className="form-inline list-group-item d-flex align-items-center py-2"> <label className="tick">{toCamelCase(cat.type)} <input onChange={handleChange()} value={cat.value} type="checkbox" /> <span className="check"></span> </label> </div>
                         })}
                     </form>
                 </details>
@@ -94,7 +94,7 @@ export const JobsFilter = ({ handleChange }) => {
                     </summary>
                     <form className="brand">
                         {locations.map(location => {
-                            return <div key={location.id} onChange={handleChange()} className="form-inline list-group-item d-flex align-items-center py-2"> <label className="tick">{toCamelCase(location.city)} <input value={location.value} type="checkbox" /> <span className="check"></span> </label> </div>
+                            return <div key={location.id}  className="form-inline list-group-item d-flex align-items-center py-2"> <label className="tick">{toCamelCase(location.city)} <input onChange={handleChange()} value={location.value} type="checkbox" /> <span className="check"></span> </label> </div>
                         })}
                     </form>
                 </details>
