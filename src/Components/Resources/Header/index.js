@@ -63,20 +63,18 @@ const Header = (props) => {
 
                     <ul className={click ? 'nav-menu active' : 'nav-menu'}>
                         <li className='nav-item'>
-                            <a href='/login' className='nav-links' >
-
+                            <Link to='/login' className='nav-links' >
                                 <Home />
                                 LOGIN
-                            </a>
+                            </Link>
                         </li>
 
                         <li className='nav-item'>
 
-                            <a className='nav-links' href='/register' >
-
+                            <Link className='nav-links' to='/register' >
                                 <HowToVote />
                                 SIGN UP
-                            </a>
+                            </Link>
                         </li>
                         <Button variant="primary" style={{ margin: "20px" }} active>
                             POST A PROJECT

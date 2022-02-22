@@ -4,6 +4,7 @@ import { Form, Button } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import './login.scss'
 import Header from '../../../Resources/Header';
+import { Link } from 'react-router-dom';
 
 class Login extends Component {
     constructor() {
@@ -39,7 +40,7 @@ class Login extends Component {
                             Submit
                         </Button>
                         <p className="forgot-password text-right">
-                            Not registered? <a href="/register">Register here!</a>
+                            Not registered? <Link to="/register">Register here!</Link>
                         </p>
                     </Form>
                 </div>
