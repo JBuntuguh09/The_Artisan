@@ -1,9 +1,14 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import './index.css'
+import Header from '../../Resources/Header/index'
+
+
 export default class SignUp extends Component {
     render() {
         return (
+            <>
+            <Header />
             <div style={{ marginTop: "40px" }}>
                 <div className="outer">
                     <div className="inner">
@@ -38,6 +43,7 @@ export default class SignUp extends Component {
                     </div>
                 </div>
             </div>
+            </>
         );
     }
 }

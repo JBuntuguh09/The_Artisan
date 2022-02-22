@@ -34,7 +34,7 @@ class Login extends Component {
                             <Form.Control type="password" placeholder="Password" />
                         </Form.Group>
                         <Form.Group className="mb-3" controlId="formBasicCheckbox">
-                            <Form.Check type="checkbox" label="Remember me1" />
+                            <Form.Check type="checkbox" label="Remember me" />
                         </Form.Group>
                         <Button variant="primary" type="submit">
                             Submit
