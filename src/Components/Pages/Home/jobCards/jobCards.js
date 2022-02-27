@@ -8,7 +8,7 @@ export const JobCards = ({ users }) => {
     return (
         <>
             {users.map(user => {
-                return (<div className="text-dark">
+                return (<div key={user.id} className="text-dark">
                     <h4>{user.name}</h4>
                     <p>{user.address.city}</p>
                 </div>)
