@@ -1,53 +1,22 @@
-import app from 'firebase/compat/app';
-import 'firebase/compat/auth'
+import {initializeApp} from 'firebase/app';
+
+
 
 
 const firebaseConfig = {
-  apiKey: "AIzaSyA-Ep05PiByx3tf5wP4r_3OQad_pRVA7pY",
-  authDomain: "catrac-cdc6e.firebaseapp.com",
-  databaseURL: "https://catrac-cdc6e-default-rtdb.firebaseio.com",
-  projectId: "catrac-cdc6e",
-  storageBucket: "catrac-cdc6e.appspot.com",
-  messagingSenderId: "429295578957",
-  appId: "1:429295578957:web:620e1e172d671b68f31104",
-    hosting: {
-        "site": "garrison2005",
-        "public": "public",
-        
-      }
+    apiKey: "AIzaSyBvrql22BmyB0X0B6t6BloCjrUjpTrqLHg",
+    authDomain: "the-artisan-6249b.firebaseapp.com",
+    databaseURL: "https://the-artisan-6249b-default-rtdb.firebaseio.com",
+    projectId: "the-artisan-6249b",
+    storageBucket: "the-artisan-6249b.appspot.com",
+    messagingSenderId: "115804486190",
+    appId: "1:115804486190:web:53dbace56641daaf397dbf",
+    measurementId: "G-X9LSC6MK8D"
   };
   // Initialize Firebase
   
   //const fire = app.initializeApp(firebaseConfig);
   //firebase.analytics();
 
-  class fireMain {
-        constructor(){
-            app.initializeApp(firebaseConfig);
-            this.auth = app.auth;
-        }
 
-
-        register(){
-           
-        }
-
-        login(email, password){
-            return this.auth.signInWithEmailAndPassword(email, password);
-        }
-
-        createAccount(email, password){
-            return this.auth.createUserWithEmailAndPassword(email, password);
-        }
-
-        logout(){
-            return this.auth.signOut();
-        }
-
-        getUserId(){
-            return this.auth.currentUser.uid
-        }
-  }
-
-
-  export default new  fireMain();
+  export const app = initializeApp(firebaseConfig);
