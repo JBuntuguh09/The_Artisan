@@ -1,10 +1,10 @@
 import './App.css';
 import {BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import Home from './Components/Pages/Home';
+import Home from './Pages/Home/home.component';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Register from './Components/Pages/Register';
-import Login from './Components/Pages/login/login/login';
-import { Jobs } from './Components/Pages/Home/jobs/jobs';
+import Register from './Pages/Register/register.component';
+import Login from './Pages/login/login.component';
+import { Jobs } from './Pages/jobs/jobs.component';
 
 function App() {
   return (

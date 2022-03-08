@@ -2,10 +2,10 @@ import React, { useState } from 'react'
 import { Component } from 'react';
 import { Form, Button } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
-import './login.scss'
-import Header from '../../../Resources/Header';
+import './login.styles.scss'
+import Header from '../../Components/Resources/Header';
 import { Link } from 'react-router-dom';
-import fire from '../../../Config/fire';
+import fire from '../../Components/Config/fire';
 import { useNavigate } from 'react-router-dom';
 import { Navigate } from 'react-router-dom';
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";

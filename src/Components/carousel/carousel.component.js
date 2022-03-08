@@ -1,6 +1,6 @@
 import React from "react";
 import Carousel from "react-bootstrap/Carousel";
-import './HomeCarousel.scss'
+import './carousel.styles.scss'
 
 const HomeCarousel = (props) => {
   

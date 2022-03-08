@@ -1,5 +1,5 @@
 import React from "react";
-import './jobCards.scss'
+import './job-cards.styles.scss'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Container, Row, Col } from "react-bootstrap";
 

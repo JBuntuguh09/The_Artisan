@@ -1,11 +1,11 @@
 import React from "react";
-import './jobs.scss'
+import './jobs.styles.scss'
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { SearchBox } from "../../../Resources/search";
-import { JobsFilter } from "../../../Resources/filter";
+import { SearchBox } from "../../Components/Resources/search";
+import { JobsFilter } from "../../Components/Resources/filter";
 import { Container, Row, Col } from "react-bootstrap";
-import Header from "../../../Resources/Header";
-import { JobCards } from "../jobCards/jobCards";
+import Header from "../../Components/Resources/Header";
+import { JobCards } from "../../Components/job-cards/job-cards.component";
 
 export class Jobs extends React.Component {
     constructor() {
