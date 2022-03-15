@@ -1,7 +1,7 @@
 import React, { Component, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import './register.styles.css'
-import Header from '../../Components/Resources/Header/index'
+import Header from '../Resources/Header/index'
 import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
 import {getDatabase, set, ref} from "firebase/database"
 

@@ -1,0 +1,11 @@
+.job-card {
+    border: solid white 1px;
+    border-radius: 5px;
+    margin-bottom: 5px;
+    cursor: pointer;
+
+    &:hover {
+        opacity: 0.7;
+    }
+
+}

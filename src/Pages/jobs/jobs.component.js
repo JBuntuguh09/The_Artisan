@@ -13,6 +13,7 @@ export class Jobs extends React.Component {
         this.state = {
             users: [],
             searchField: "",
+            filterArray: []
         };
     }
 
@@ -20,33 +21,70 @@ export class Jobs extends React.Component {
         fetch("https://jsonplaceholder.typicode.com/users")
             .then((response) => response.json())
             .then((users) => this.setState({ users: users }));
+
     }
 
     handleChange = e => {
-        console.log(this.state.searchField)
-        return e => this.setState({ searchField: e.target.value })
+        return this.setState({ searchField: e.target.value })
+    }
+
+    handleFilterChange = e => {
+        if (e.target.checked) {
+            document.getElementById('searchBox').disabled = true
+
+            return this.setState(prevState => (
+                prevState.filterArray.includes(e.target.value) ?
+                    { filterArray: [...prevState.filterArray] }
+                    :
+                    { filterArray: [...prevState.filterArray, e.target.value] }
+            ))
+        } else {
+            let currentState = this.state.filterArray
+            let index = currentState.indexOf(e.target.value)
+            currentState.splice(index, 1)
+
+            return this.setState({ filterArray: currentState })
+        }
     }
 
     getFilter = () => {
         const { users, searchField } = this.state;
-        const filteredUsers = users.filter((user) =>
-            user.name.toLowerCase().includes(searchField.toLowerCase()) || user.address.city.toLowerCase().includes(searchField.toLowerCase()) 
+        const searchedUsers = users.filter((user) =>
+            user.name.toLowerCase().includes(searchField.toLowerCase()) || user.address.city.toLowerCase().includes(searchField.toLowerCase())
         );
-        return filteredUsers
+        return searchedUsers
+    }
+
+    getFilteredList = () => {
+        let filterUsers = []
+        const { users, filterArray } = this.state
+
+        for (let el of filterArray) {
+            let found = users.filter((user) => user.name.toLowerCase().includes(el.toLowerCase()) || user.address.city.toLowerCase().includes(el.toLowerCase())
+            )
+            filterUsers = [...filterUsers, ...found]
+        }
+        return filterUsers
     }
 
     render() {
-        const filteredUsers = this.getFilter()
+        let filteredUsers = this.getFilteredList().length !== 0 ? this.getFilteredList() : this.getFilter();
+        filteredUsers = filteredUsers.filter((item, pos) => (filteredUsers.indexOf(item) === pos))
+        console.log(filteredUsers)
         return (
             <div>
                 <Header />
                 <Container>
                     <Row>
-                        <SearchBox users={filteredUsers} handleChange={this.handleChange} placeholder="search jobs" />
+                        <SearchBox filterUsers={this.getFilteredList()} handleChange={this.handleChange} placeholder="search jobs" />
                     </Row>
                     <Row>
-                        <Col id="jobfilter" sm={3}><JobsFilter handleChange={this.handleChange} /></Col>
-                        <Col sm={7}><JobCards users={filteredUsers}/></Col>
+                        <Col id="jobfilter" sm={3}>
+                            <JobsFilter handleFilterChange={this.handleFilterChange} />
+                        </Col>
+                        <Col sm={7}>
+                            <JobCards filteredUsers={filteredUsers} />
+                        </Col>
                     </Row>
                 </Container>
 

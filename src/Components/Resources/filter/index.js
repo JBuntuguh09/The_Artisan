@@ -2,7 +2,7 @@ import React from "react"
 import './index.scss'
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-export const JobsFilter = ({ handleChange }) => {
+export const JobsFilter = ({ handleFilterChange }) => {
     const categories = [{
         id: 1,
         type: 'plumbers',
@@ -50,11 +50,11 @@ export const JobsFilter = ({ handleChange }) => {
         city: 'tamale',
         value: 'South Christy'
     }, {
-        id: 700,
+        id: 701,
         city: 'cape coast',
         value: 'Howemouth'
     }, {
-        id: 800,
+        id: 801,
         city: 'bolga',
         value: 'Aliyaview'
     }]
@@ -66,23 +66,11 @@ export const JobsFilter = ({ handleChange }) => {
     return (
         <div>
             <div className="py-3">
-                <details open>
-                    <summary>
-                        <h5 className="font-weight-bold">Categories</h5>
-                    </summary>
-                    <ul className="list-group">
-                        {categories.map(cat => {
-                            return <li key={cat.id} className="list-group-item list-group-item-action d-flex justify-content-between align-items-center category">{toCamelCase(cat.type)} <span className="badge badge-primary badge-pill text-dark">{cat.count}</span> </li>
-                        })}
-                    </ul>
-                </details>
-            </div>
-            <div className="py-3">
                 <details>
                     <summary><h5 className="font-weight-bold">Filters</h5></summary>
                     <form className="brand">
                         {categories.map(cat => {
-                            return <div key={cat.id} className="form-inline list-group-item d-flex align-items-center py-2"> <label className="tick">{toCamelCase(cat.type)} <input onChange={handleChange()} value={cat.value} type="checkbox" /> <span className="check"></span> </label> </div>
+                            return <div key={cat.id} className="form-inline list-group-item d-flex align-items-between py-2"> <label className="tick">{toCamelCase(cat.type)} <input onChange={handleFilterChange} value={cat.value} type="checkbox" /> <span className="badge badge-primary badge-pill text-dark justify-content-between">{cat.count}</span>  </label> </div>
                         })}
                     </form>
                 </details>
@@ -94,7 +82,7 @@ export const JobsFilter = ({ handleChange }) => {
                     </summary>
                     <form className="brand">
                         {locations.map(location => {
-                            return <div key={location.id}  className="form-inline list-group-item d-flex align-items-center py-2"> <label className="tick">{toCamelCase(location.city)} <input onChange={handleChange()} value={location.value} type="checkbox" /> <span className="check"></span> </label> </div>
+                            return <div key={location.id}  className="form-inline list-group-item d-flex align-items-center py-2"> <label className="tick">{toCamelCase(location.city)} <input onChange={handleFilterChange} value={location.value} type="checkbox" /> <span className="check"></span> </label> </div>
                         })}
                     </form>
                 </details>
