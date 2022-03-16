@@ -8,13 +8,17 @@ export class SearchBox extends React.Component {
 
     }
   }
-  
-  componentDidUpdate(){
+
+  componentDidUpdate() {
     const searchBoxId = document.getElementById('searchBox');
-        this.props.filterUsers.length === 0 ? searchBoxId !== '' ? searchBoxId.disabled = false : searchBoxId.disabled = true : console.log('');
+    this.props.filterUsers.length === 0 ?
+      searchBoxId !== '' ?
+        searchBoxId.disabled = false
+        : searchBoxId.disabled = true
+      : console.log('');
   }
 
-  render() { 
+  render() {
     return (
       <input
         id="searchBox"
