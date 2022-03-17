@@ -9,7 +9,9 @@ export class JobCards extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            photos: {}
+            photos: {
+                "thumbnailUrl": "https://randomuser.me/api/portraits/med/men/67.jpg"
+            }
         }
 
     }
@@ -38,11 +40,11 @@ export class JobCards extends React.Component {
         },
     ];
 
-    componentDidMount() {
-        fetch("https://jsonplaceholder.typicode.com/photos")
-            .then((response) => response.json())
-            .then((photos) => this.setState({ photos: photos[0] }));
-    }
+    // componentDidMount() {
+    //     fetch("https://jsonplaceholder.typicode.com/photos")
+    //         .then((response) => response.json())
+    //         .then((photos) => this.setState({ photos: photos[0] }));
+    // }
     render() {
         // console.log(this.state.photos)
         return (
