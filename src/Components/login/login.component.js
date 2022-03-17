@@ -3,7 +3,7 @@ import { Component } from 'react';
 import { Form, Button } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import './login.styles.scss'
-import Header from '../Resources/Header';
+import Header from '../Resources/Header/header.component';
 import { Link } from 'react-router-dom';
 import fire from '../Config/fire';
 import { useNavigate } from 'react-router-dom';

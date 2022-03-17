@@ -5,9 +5,15 @@
     padding: 15px 15px;
 
     &:hover {
-        opacity: 0.6;
+        opacity: 0.8;
         background-color: #dedede;
         
     }
 
 }
+
+@media (min-width: 748px) { 
+    .get-in-touch {
+        margin-left: 10px;
+    }
+ }

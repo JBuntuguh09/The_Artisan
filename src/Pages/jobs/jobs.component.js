@@ -1,10 +1,10 @@
 import React from "react";
 import './jobs.styles.scss'
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { SearchBox } from "../../Components/Resources/search";
-import { JobsFilter } from "../../Components/Resources/filter";
+import { SearchBox } from "../../Components/Resources/search/search.component";
+import { JobsFilter } from "../../Components/Resources/filter/filter.component";
 import { Container, Row, Col } from "react-bootstrap";
-import Header from "../../Components/Resources/Header";
+import Header from "../../Components/Resources/Header/header.component";
 import { JobCards } from "../../Components/job-cards/job-cards.component";
 
 export class Jobs extends React.Component {
@@ -16,6 +16,8 @@ export class Jobs extends React.Component {
             filterArray: []
         };
     }
+
+    
 
     componentDidMount() {
         fetch("https://jsonplaceholder.typicode.com/users")
@@ -31,6 +33,7 @@ export class Jobs extends React.Component {
     handleFilterChange = e => {
         if (e.target.checked) {
             document.getElementById('searchBox').disabled = true
+            document.getElementById('searchBox').placeholder = 'Uncheck filter to use search'
 
             return this.setState(prevState => (
                 prevState.filterArray.includes(e.target.value) ?
@@ -69,7 +72,7 @@ export class Jobs extends React.Component {
 
     render() {
         let filteredUsers = this.getFilteredList().length !== 0 ? this.getFilteredList() : this.getFilter();
-        filteredUsers = filteredUsers.filter((item, pos) => (filteredUsers.indexOf(item) === pos))
+        filteredUsers = filteredUsers.filter((item, pos) => (filteredUsers.indexOf(item) === pos)).sort((a, b) => a.name.localeCompare(b.name))
         console.log(filteredUsers)
         return (
             <div>
