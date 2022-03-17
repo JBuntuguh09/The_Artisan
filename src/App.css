@@ -2,7 +2,7 @@ body {
   min-height: 100vh;
   display: flex;
   font-weight: 400;
-  font-family: sans-serif;
+  font-family: 'Open Sans Condensed', sans-serif;
   background: #fefefe;  /* fallback for old browsers */
   
 }
