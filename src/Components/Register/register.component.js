@@ -53,7 +53,7 @@ export default function SignUp () {
                     password : password,
                     User_Id : userId
                 }); 
-                 
+                 localStorage.setItem("loggedin", "Yes")
                 handleClick("/jobs")
                     // ...
                 })

@@ -6,12 +6,16 @@ import { Link } from 'react-router-dom'
 //import logo from '../Images/garrision.jpg'
 import Button from 'react-bootstrap/Button'
 import './index.css'
+import { getAuth, signOut } from "firebase/auth";
+
+
 
 
 const Header = (props) => {
     const [click, setClick] = useState(false)
     const [button, setButton] = useState(true)
     const [username, setUsername] = useState('')
+    const [logState, setLogState] = useState(localStorage.getItem("loggedin"))
 
     const closeMobileMenu = (page) => {
         props.history.replace('/register')
@@ -28,12 +32,20 @@ const Header = (props) => {
     useEffect(() => {
         showButton()
     }, [])
+    
+    
     const logout = () => {
-        props.history.replace('/register')
+        const auth = getAuth();
+        signOut(auth).then(() => {
+        // Sign-out successful.
+        //props.history.replace('/register')
+        setLogState("No")
+        localStorage.setItem("loggedin", "No")
+    }).catch((error) => {
+        // An error happened.
+    });
 
     }
-
-
 
 
 
@@ -46,6 +58,13 @@ const Header = (props) => {
                     <Link to="/" className="navbar-logo" >
                         {/* <img src = {logo} width="50" height="50" /> */}
                         THE ARTISAN
+                    </Link>
+                    <Link to={"/"} className="navbar-logo-side">
+                    How it works
+                    </Link>
+
+                    <Link to={"/jobs"} className="navbar-logo-side">
+                    Browse Jobs
                     </Link>
                     <div className="menu-icon" onClick={() => { setClick(!click) }}>
                         {click ? <Close style={{ color: 'white' }} /> : <MenuOutlined style={{ color: 'white' }} />}
@@ -63,10 +82,19 @@ const Header = (props) => {
 
                     <ul className={click ? 'nav-menu active' : 'nav-menu'}>
                         <li className='nav-item'>
-                            <Link to='/login' className='nav-links' >
-                                <Home />
-                                LOGIN
-                            </Link>
+                            {logState==="Yes"?
+                            <Link to='/login' onClick={(e)=>{e.preventDefault()
+                                logout()
+                                }} className='nav-links' >
+                            <Home />
+                            LOGOUT
+                        </Link>:
+                        <Link to='/login'  className='nav-links' >
+                        <Home />
+                        LOGIN
+                        </Link>
+                        }
+                            
                         </li>
 
                         <li className='nav-item'>
