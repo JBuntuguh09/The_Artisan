@@ -2,20 +2,28 @@ import React from "react";
 import './job-cards.styles.scss'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Container, Row, Col } from "react-bootstrap";
+import HomeCarousel from "../carousel/carousel.component";
+import CustomButton from "../Resources/custom-button/custom-button.component";
+import { caroArray } from "../Resources/data";
 
 export class JobCards extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            photos:{}
+            photos: {
+                "thumbnailUrl": "https://randomuser.me/api/portraits/med/men/67.jpg"
+            }
         }
-        
+
     }
-    componentDidMount() {
-        fetch("https://jsonplaceholder.typicode.com/photos")
-            .then((response) => response.json())
-            .then((photos) => this.setState({ photos: photos[0]}));   
-    }
+
+    caroArray = caroArray
+
+    // componentDidMount() {
+    //     fetch("https://jsonplaceholder.typicode.com/photos")
+    //         .then((response) => response.json())
+    //         .then((photos) => this.setState({ photos: photos[0] }));
+    // }
     render() {
         // console.log(this.state.photos)
         return (
@@ -31,14 +39,14 @@ export class JobCards extends React.Component {
                                     <h4>{user.name}</h4>
                                     <p><span>Loc: </span><span>{user.address.city}</span> | <span>{user.phone}</span></p>
                                 </Col>
-                                <Col className='mb-3' sm={3}>
-                                    <img width='100' src={this.state.photos.url} alt='profile pic' />
+                                <Col className='m-0' sm={3}>
+                                    <HomeCarousel caroArray={this.caroArray} />
                                 </Col>
+                                <p className='get-in-touch'><span><CustomButton>View</CustomButton></span> <span><CustomButton>Contact</CustomButton></span></p>
                             </Row>
                         </Container>
                     )
                 })}
-    
             </>
         );
     }

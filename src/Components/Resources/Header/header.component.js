@@ -5,7 +5,7 @@ import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 //import logo from '../Images/garrision.jpg'
 import Button from 'react-bootstrap/Button'
-import './index.css'
+import './header.styles.css'
 import { getAuth, signOut } from "firebase/auth";
 
 
