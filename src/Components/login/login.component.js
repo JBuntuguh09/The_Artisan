@@ -40,6 +40,7 @@ function Login(props) {
                     signInWithEmailAndPassword(auth, "lonewolf.09@hotmail.com", "passwordzero24six")
                         .then((userCredential) => {
                             // Re Signed in 
+                            localStorage.setItem("loggedin", "Yes")
                             handleClick("/jobs")
 
 
