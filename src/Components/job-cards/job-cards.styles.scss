@@ -1,0 +1,19 @@
+.job-card {
+    border-radius: 5px;
+    margin-bottom: 5px;
+    cursor: pointer;
+    padding: 15px 15px;
+
+    &:hover {
+        opacity: 0.8;
+        background-color: #dedede;
+        
+    }
+
+}
+
+@media (min-width: 748px) { 
+    .get-in-touch {
+        margin-left: 10px;
+    }
+ }
