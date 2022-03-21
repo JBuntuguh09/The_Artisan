@@ -16,15 +16,16 @@ const HomeCarousel = ({ caroArray, caption }) => {
                 src={arr.imageUrl}
               />
               {
-                caption?
-                <Carousel.Caption className="align-middle p-3 rounded">
-                <h1 className="d-none d-lg-block d-sm-none">Hire the best Artisans for any job, right here</h1>
-                <h3>{arr.title}</h3>
-                <p>{arr.caption}</p>
-              </Carousel.Caption>
-              :
-              console.log('')
-            }
+                caption
+                  ?
+                  <Carousel.Caption className="align-middle p-3 rounded">
+                    <h1 className="d-none d-lg-block d-sm-none">Hire the best Artisans for any job, right here</h1>
+                    <h3>{arr.title}</h3>
+                    <p>{arr.caption}</p>
+                  </Carousel.Caption>
+                  :
+                  console.log('')
+              }
             </Carousel.Item>
           );
         })}
