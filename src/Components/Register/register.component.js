@@ -4,6 +4,10 @@ import './register.styles.css'
 import Header from '../Resources/Header/header.component'
 import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
 import {getDatabase, set, ref} from "firebase/database"
+import  Dropdown  from "react-dropdown";
+import "react-dropdown/style.css"
+import PopUp from "../Config/PopUp";
+import { Spinner } from "react-bootstrap";
 
 
 export default function SignUp () {
@@ -12,11 +16,21 @@ export default function SignUp () {
     const [lname, setLname]=useState("")
     const [email, setEmail]=useState("")
     const [password, setPassword]=useState("")
+    const [userType, setUserType] = useState("")
+    const [popupState, setPopupState] = useState(false)
     
     let navigate = useNavigate();
     function handleClick(val) {
       navigate(val);
     } 
+
+    function getUsertype(){
+        var type=[]
+        type.push("I am a seeking an artisan")
+        type.push("I am an artisan")
+
+        return type
+    }
 
      async function  register(){
 
@@ -33,6 +47,7 @@ export default function SignUp () {
         }else if(password.length<=6){
             alert("Your password should be more than 6 characters")
         }else{
+            setPopupState(true)
         const auth = getAuth();
         createUserWithEmailAndPassword(auth, email, password)
           .then((userCredential) => {
@@ -51,16 +66,23 @@ export default function SignUp () {
                     Last_Name : lname,
                     email: email,
                     password : password,
-                    User_Id : userId
+                    User_Id : userId,
+                    UserType : userType==="I am an artisan"?"Artist":"User"
                 }); 
                  localStorage.setItem("loggedin", "Yes")
-                handleClick("/jobs")
+                 localStorage.setItem("fname", fname+" "+lname)
+                 if(userType==="I am an artisan"){
+                    handleClick("/setup_profile")
+                 }else{
+                    handleClick("/jobs")
+                 }
                     // ...
                 })
                 .catch((error) => {
                     const errorCode = error.code;
                     const errorMessage = error.message;
                     alert(errorMessage)
+                    setPopupState(false)
                 });         
                 
             
@@ -70,6 +92,7 @@ export default function SignUp () {
             const errorCode = error.code;
             const errorMessage = error.message;
             alert(errorMessage)
+            setPopupState(false)
             // ..
           });
         }
@@ -120,6 +143,11 @@ export default function SignUp () {
                                 className="form-control" placeholder="Enter password" />
                             </div>
 
+                            <div className="form-group" style={{marginTop:"20px"}}>
+                            <Dropdown options={getUsertype()} placeholder="Select User type" 
+                            value={userType} onChange={(e)=>{setUserType(e.value)}}/>
+                            </div>
+
                             <button 
                             onClick={(e)=>{
                                 e.preventDefault()
@@ -130,6 +158,10 @@ export default function SignUp () {
                                 Already registered <Link to="/login">log in?</Link>
                             </p>
                         </form>
+                        <PopUp 
+                        openPopUp={popupState}
+                        children={<Spinner animation="border" variant="success" />}/>
+                        
                     </div>
                 </div>
             </div>

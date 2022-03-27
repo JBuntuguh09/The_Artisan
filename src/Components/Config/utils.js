@@ -158,6 +158,14 @@ class utils {
         return list
     }
 
+    getUsertype(){
+        var type=[]
+        type.push("I am a seeking an artisan")
+        type.push("I am an artisan")
+
+        return type
+    }
+
     getLanguages(){
         var langs = []
 
