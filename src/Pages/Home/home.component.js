@@ -7,13 +7,15 @@ import Header from "../../Components/Resources/Header/header.component";
 import { caroArray } from "../../Components/Resources/data";
 
 const Home = () => {
- 
+
   return (
     <div className="homepage">
       <Header />
-      <HeaderSub/>
-     
-      <HomeCarousel caroArray={caroArray} caption='true'/>
+      <HeaderSub />
+      <div className="container">
+        <HomeCarousel caroArray={caroArray} caption='true' />
+      </div>
+
     </div>
   );
 };
